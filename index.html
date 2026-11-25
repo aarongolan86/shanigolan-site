@@ -709,6 +709,21 @@ html{overflow-x:clip}
 .menu-lockup .ln2{font-size:9.7px;letter-spacing:.1em;margin-top:4px}
 .foot .legal{font-size:14px}
 .foot .legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+
+/* gallery: Instagram tile instead of the two middle photos */
+.g-ig{grid-column:span 2;aspect-ratio:2.1/1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:6px;padding:28px 24px;text-decoration:none;color:var(--ink);background:linear-gradient(135deg,#FCF3F6 0%,#F6DBE6 100%);border:1px solid var(--line);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.g-ig::before{content:"";position:absolute;inset:0;padding:1.5px;background:linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.55;pointer-events:none}
+.g-ig:hover{transform:translateY(-2px);box-shadow:0 18px 40px -24px rgba(185,60,106,.45)}
+.g-ig-icon{width:54px;height:54px;display:grid;place-items:center;background:#fff;border-radius:16px;box-shadow:0 8px 20px -12px rgba(0,0,0,.25);margin-bottom:6px}
+.g-ig-icon .ig-ic{width:30px;height:30px}
+.g-ig-kicker{font-size:12px;letter-spacing:.24em;text-transform:uppercase;color:var(--primary);font-weight:500}
+.g-ig-title{font-size:clamp(22px,2.4vw,30px);font-weight:800;letter-spacing:-.01em;line-height:1.2}
+.g-ig-text{font-size:15px;color:var(--muted);max-width:34ch;line-height:1.6}
+.g-ig-btn{margin-top:12px;pointer-events:none}
+.g-ig:hover .g-ig-btn{background-image:linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5),linear-gradient(45deg,#FEDA75,#FA7E1E,#D62976,#962FBF,#4F5BD5);color:#fff}
+.g-ig:hover .g-ig-btn .ig-ic{stroke:#fff}
+.g-ig:hover .g-ig-btn .ig-ic circle:last-child{fill:#fff}
+@media (max-width:899px){.g-ig{aspect-ratio:auto;padding:34px 20px}}
 </style>
 </head>
 <body>
@@ -945,13 +960,14 @@ html{overflow-x:clip}
       </div>
       <div class="gallery">
         <figure class="g1 rv"><img src="/img/work-1.jpg" alt="גבה בטכניקת פודרה אחרי טיפול" loading="lazy"><figcaption>פודרה רכה, גוון חום טבעי</figcaption></figure>
-        <figure class="g2 rv"><img src="/img/work-2.jpg" alt="גבה מעוצבת מעל עין ירוקה" loading="lazy"></figure>
-        <figure class="g3 rv"><img src="/img/work-3.jpg" alt="פורטרט שחור-לבן" loading="lazy" style="object-position:50% 30%"></figure>
+        <a class="g-ig rv" href="https://www.instagram.com/shanigolan.brows/" target="_blank" rel="noopener" aria-label="עוד עבודות לפני ואחרי באינסטגרם @shanigolan.brows">
+          <span class="g-ig-icon"><svg class="ig-ic" viewBox="0 0 24 24" fill="none" stroke="url(#igGrad)" stroke-width="1.9" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.15" fill="url(#igGrad)" stroke="none"/></svg></span>
+          <span class="g-ig-kicker">Instagram</span>
+          <span class="g-ig-title">עוד עבודות, לפני ואחרי</span>
+          <span class="g-ig-text">כל העבודות של שני, תהליכי החלמה ותוצאות אמיתיות מהקליניקה</span>
+          <span class="btn btn-ig g-ig-btn"><svg class="ig-ic" viewBox="0 0 24 24" fill="none" stroke="url(#igGrad)" stroke-width="1.9" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.15" fill="url(#igGrad)" stroke="none"/></svg><span class="ltr">@shanigolan.brows</span></span>
+        </a>
         <figure class="g4 rv"><video data-src="treatment.mp4" preload="none" poster="/img/treatment-poster.jpg" muted loop playsinline data-lazy aria-label="שני בזמן טיפול"></video><figcaption>עבודה בכפפות ובציוד חד-פעמי, בכל טיפול</figcaption></figure>
-      </div>
-      <div class="gallery-foot">
-        <span>עוד עבודות, לפני ואחרי, באינסטגרם</span>
-        <a class="btn btn-ig" href="https://www.instagram.com/shanigolan.brows/" target="_blank" rel="noopener" aria-label="אינסטגרם @shanigolan.brows"><svg class="ig-ic" viewBox="0 0 24 24" fill="none" stroke="url(#igGrad)" stroke-width="1.9" aria-hidden="true"><rect x="3.2" y="3.2" width="17.6" height="17.6" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.15" fill="url(#igGrad)" stroke="none"/></svg><span class="ltr">@shanigolan.brows</span></a>
       </div>
     </div>
   </section>
