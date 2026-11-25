@@ -693,6 +693,10 @@ header:not(.scrolled) .menu-btn{opacity:0;visibility:hidden;transform:translateY
 .hero h1 .h1-l1{white-space:nowrap}
 html{overflow-x:clip}
 @media (max-width:899px){.hero h1{font-size:min(40px,9.4vw)}}
+
+/* menu: full logo lockup */
+.menu-lockup{--s:1.05;align-self:flex-start;margin:64px 0 26px}
+.menu-lockup .ln2{font-size:9.7px;letter-spacing:.1em;margin-top:4px}
 </style>
 </head>
 <body>
@@ -710,7 +714,7 @@ html{overflow-x:clip}
 <div class="menu-ov" id="menu-ov" hidden></div>
 <aside class="menu" id="menu" aria-label="תפריט" aria-hidden="true">
   <button class="menu-x" type="button" aria-label="סגירת התפריט">×</button>
-  <p class="menu-brand">SHANI GOLAN</p>
+  <a class="lockup menu-lockup" href="#top" aria-label="Shani Golan – דף הבית"><span class="ln1">Shani Golan</span><span class="ln2">Eyebrow &amp; make-up artist</span></a>
   <nav><ul>
     <li><a href="#about">אודות</a></li>
     <li><a href="#prices">מחירון</a></li>
@@ -1093,10 +1097,10 @@ html{overflow-x:clip}
   // Hamburger menu
   (function(){var b=document.querySelector('.menu-btn'),m=document.getElementById('menu'),o=document.getElementById('menu-ov');if(!b||!m)return;
     function set(on){m.classList.toggle('on',on);m.setAttribute('aria-hidden',!on);b.setAttribute('aria-expanded',on);document.body.classList.toggle('menu-open',on);
-      if(on){o.hidden=false;requestAnimationFrame(function(){o.classList.add('on')});m.querySelector('a').focus();}else{o.classList.remove('on');setTimeout(function(){o.hidden=true},300);b.focus();}}
+      if(on){o.hidden=false;requestAnimationFrame(function(){o.classList.add('on')});m.querySelector('nav a').focus();}else{o.classList.remove('on');setTimeout(function(){o.hidden=true},300);b.focus();}}
     b.addEventListener('click',function(){set(!m.classList.contains('on'))});
     o.addEventListener('click',function(){set(false)});m.querySelector('.menu-x').addEventListener('click',function(){set(false)});
-    m.querySelectorAll('nav a').forEach(function(a){a.addEventListener('click',function(){set(false)})});
+    m.querySelectorAll('nav a, .menu-lockup').forEach(function(a){a.addEventListener('click',function(){set(false)})});
     addEventListener('keydown',function(e){if(e.key==='Escape'&&m.classList.contains('on'))set(false)});})();
   // ===== Google reviews =====
   // To go live, fill in two values (see instructions in the chat):
